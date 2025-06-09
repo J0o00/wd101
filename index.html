@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="output.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f0f9ff 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(30, 64, 175, 0.12), 0 1.5px 6px rgba(30, 64, 175, 0.08);
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            width: 100%;
+            margin-bottom: 2rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .flex-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-input {
+            transition: border-color 0.2s, box-shadow 0.2s;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #d1d5db;
+            border-radius: 0.75rem;
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            background: #f9fafb;
+        }
+
+        .form-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px #93c5fd;
+            outline: none;
+            background: #fff;
+        }
+
+        input:invalid:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+        }
+
+        .form-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+            display: none;
+        }
+
+        input:invalid:focus+.form-error {
+            display: block;
+        }
+
+        .form-checkbox {
+            accent-color: #2563eb;
+            margin-right: 0.5rem;
+        }
+
+        .register-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+            color: #fff;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+            border: none;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .register-btn:hover {
+            background: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 100%);
+        }
+
+        .signin-link {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-top: 1.25rem;
+        }
+
+        .signin-link a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .signin-link a:hover {
+            color: #1d4ed8;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            background: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.07);
+        }
+
+        th,
+        td {
+            border: 1px solid #e5e7eb;
+            padding: 0.7rem 0.5rem;
+            text-align: center;
+            font-size: 0.98rem;
+        }
+
+        th {
+            background: #f3f4f6;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        tr:nth-child(even) td {
+            background: #f9fafb;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                max-width: 98vw;
+            }
+
+            form {
+                padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+            }
+
+            table {
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="registrationForm">
+            <div class="flex-center mb-6">
+                <img src="https://img.icons8.com/ios-filled/80/2563eb/user-male-circle.png" alt="User Icon"
+                    style="width: 70px; height: 70px; margin-bottom: 0.5rem;">
+                <h2 style="font-size:2.1rem; font-weight:800; color:#1e293b; margin-bottom:0.25rem;">Create Account</h2>
+                <p style="color:#64748b; font-size:1rem;">Please fill in the form to register</p>
+            </div>
+            <div>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" required class="form-input" placeholder="Your full name">
+            </div>
+            <div>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com">
+                <span class="form-error" id="emailError">Please enter a valid email address.</span>
+            </div>
+            <div>
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" required minlength="8" class="form-input"
+                    placeholder="At least 8 characters">
+            </div>
+            <div>
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required class="form-input">
+                <span class="form-error" id="dobError">Age must be between 18 and 55.</span>
+            </div>
+            <div style="display:flex; align-items:center; margin-top:0.5rem;">
+                <input type="checkbox" id="acceptTerms" name="acceptTerms" required class="form-checkbox">
+                <label for="acceptTerms" style="color:#374151; font-size:0.98rem;">
+                    I accept the
+                    <a href="#" style="color:#2563eb; text-decoration:underline;">Terms &amp; Conditions</a>
+                </label>
+            </div>
+            <button type="reset" class="register-btn"
+                style="background:linear-gradient(90deg,#ef4444 0%,#f87171 100%);margin-top:0.5rem;margin-bottom:0.5rem;"
+                onclick="localStorage.removeItem('users');document.querySelector('#userTable tbody').innerHTML='';">
+                Reset
+            </button>
+            <button type="submit" class="register-btn">Register</button>
+            <p class="signin-link">Already have an account?
+                <a href="#">Sign in</a>
+            </p>
+        </form>
+        <!-- Table for displaying registered users -->
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Dob</th>
+                    <th>Accepted terms?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added here by JS -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // Email validation
+        const emailInput = document.getElementById("email");
+        const emailError = document.getElementById("emailError");
+        emailInput.addEventListener("input", () => validate(emailInput));
+        function validate(element) {
+            if (element.validity.typeMismatch) {
+                element.setCustomValidity("Email is not in the right format");
+                emailError.style.display = "block";
+                element.reportValidity();
+            } else {
+                element.setCustomValidity('');
+                emailError.style.display = "none";
+            }
+        }
+
+        // DOB validation (18-55 years)
+        const dobInput = document.getElementById("dob");
+        const dobError = document.getElementById("dobError");
+        dobInput.addEventListener("input", () => {
+            const dobValue = dobInput.value;
+            if (!dobValue) {
+                dobInput.setCustomValidity("Please enter your date of birth");
+                dobError.style.display = "block";
+                return;
+            }
+            const today = new Date();
+            const dobDate = new Date(dobValue);
+            let age = today.getFullYear() - dobDate.getFullYear();
+            const m = today.getMonth() - dobDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) {
+                age--;
+            }
+            if (age < 18 || age > 55) {
+                dobInput.setCustomValidity("Age must be between 18 and 55.");
+                dobError.style.display = "block";
+            } else {
+                dobInput.setCustomValidity('');
+                dobError.style.display = "none";
+            }
+        });
+
+        // Table and localStorage logic
+        const form = document.getElementById("registrationForm");
+        const tableBody = document.querySelector("#userTable tbody");
+
+        function loadUsers() {
+            const users = JSON.parse(localStorage.getItem("users") || "[]");
+            tableBody.innerHTML = "";
+            users.forEach(user => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.password}</td>
+                    <td>${user.dob}</td>
+                    <td>${user.acceptedTerms}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            // Validate DOB again before saving
+            dobInput.dispatchEvent(new Event('input'));
+            if (!form.checkValidity()) return;
+
+            const user = {
+                name: form.name.value,
+                email: form.email.value,
+                password: form.password.value,
+                dob: form.dob.value,
+                acceptedTerms: form.acceptTerms.checked ? "true" : "false"
+            };
+            const users = JSON.parse(localStorage.getItem("users") || "[]");
+            users.push(user);
+            localStorage.setItem("users", JSON.stringify(users));
+            loadUsers();
+            form.reset();
+        });
+
+        // On page load
+        window.onload = function () {
+            loadUsers();
+        };
+    </script>
+</body>
+
+</html>
